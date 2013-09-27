@@ -1,0 +1,11 @@
+Summary: Como desarrollador quiero agregar un Cambio dentro de un evento de forma tal de dar un orden a los distintos cambios
+Status: New
+CreatedBy: abalbi <alejandrobalbi@gmail.com>
+AssignedTo: 
+Inserted: 2013-09-26T14:33:23
+Updated: 2013-09-26T14:33:23
+
+Description ...
+DADO un Evento con el Cambio1 asignado
+CUANDO Evento->peso Cambio1 10
+ENTONCES el cambio1 tendra peso 10 dentro de la lista de cambios del elemento

@@ -1,0 +1,12 @@
+Summary: Como desarrollador quiero agregar Cambios a los eventos
+Status: Finished
+CreatedBy: abalbi <alejandrobalbi@gmail.com>
+AssignedTo: 
+Inserted: 2013-09-26T13:50:37
+Updated: 2013-09-26T13:50:37
+
+Description ...
+DADO un Cambio y Evento
+CUANDO los agrego a un Evento
+ENTONCES el Evento aumentara en uno su cuenta de Cambio
+Y voy a tener un Cambio en la lista de Cambios del evento

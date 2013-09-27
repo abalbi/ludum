@@ -3,13 +3,67 @@ use Data::Dumper;
 use Getopt::Std;
 my %args;
 getopt('e', \%args);
+my $file = shift;
+die "No se encontro $file" if $file && not -e $file;
+die "No se puede ejecutar un archivo y un inline al mismo tiempo" if $args{e} && $file;
+
+print Dumper parser("16");
+print Dumper parser("7 + 9");
+
+
+exit;
+
+sub parser {
+  my $code = shift;
+  my $obj->{code} = $code;
+  $obj->{mod} = 1;
+  while ($obj->{mod}) {
+    $obj->{mod} = 0;
+    $obj->{valor} = $obj->{code} if not $obj->{valor};
+    parser_dados($obj);
+    parser_operacion($obj);
+    parser_digito($obj);
+  }
+  return $obj;
+}
+
+sub parser_digito {
+  my $obj = shift;
+  my $valor = $obj->{valor};
+  my $rex = qr/(\d*)d(\d*)/i;
+  if($valor =~ /$rex/) {
+    $obj->{mod} = 1;
+  }
+  return $obj;
+}
+
+sub parser_operacion {
+  my $obj = shift;
+  my $valor = $obj->{valor};
+  if($valor =~ /^([\d\+\*\/\- ]+)$/) {
+    $valor = eval "$1";
+    $obj->{valor} = $valor;
+    $obj->{mod} = 1;
+  }
+  return $obj;
+}
+
+sub parser_digito {
+  my $obj = shift;
+  my $valor = $obj->{valor};
+  if($valor =~ /^(\d+)$/) {
+    my $valor = $1;
+    $obj->{valor} = $valor;
+    $obj->{mod} = 0;
+  }
+  return $obj;
+}
+
 my $rex = [
   { rule => qr/^([^\[]*)/, code => \&comp_string },
   { rule => qr/^\[([^[]*)\]/, code => \&comp_code },
 ];
-my $file = shift;
-die "No se encontro $file" if $file && not -e $file;
-die "No se puede ejecutar un archivo y un inline al mismo tiempo" if $args{e} && $file;
+
 while(1) {
   my $script = `cat $file`;
   $script = $args{'e'} if not $script;

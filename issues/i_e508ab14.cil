@@ -8,4 +8,15 @@ Updated: 2013-09-20T09:36:54
 Description ...
 DADO el simbolo $pirata.melee tiene asignado el valor 3D6+2
 CUANDO el sistema recibe la string [$pirata.melee]
-ENTONCES me devuelve { $pirata.melee: 3D6+2 : \d + \d + \d + 2 : \d+ } 
+ENTONCES me devuelve una estructura {
+  codigo: '$pirata.melee'
+  valores: [
+    { _class: valor, tipo:random, valor:\d },
+    { _class: valor, tipo:random, valor:\d },
+    { _class: valor, tipo:random, valor:\d },
+    { _class: valor, tipo:const, valor:\d },
+  ],
+  exito: 1,
+  suma: \d
+} 
+
