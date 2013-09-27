@@ -32,5 +32,18 @@ sub agregar_cambio_a_evento : Test(2) {
   is($ev->cambios->[0], $ca1)
 }
 
+#--- Issue 855213ea ---
+sub peso_para_cambio : Test(1) {
+  my $self = shift;
+  my $mm = MockManager->instancia;
+  my $ca1 = MockObjectX->new();
+  my $ev = Evento->new();
+  $mm->etiqueta($ca1,'cambio1');
+  $mm->agregar(['cambio1','evento',$ev,$ev]);
+  $ev->agregar($ca1);
+  $ev->peso($ca1,10);
+  is($ev->peso($ca1),10);
+}
+
 1;
 
