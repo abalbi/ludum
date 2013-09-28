@@ -1,0 +1,12 @@
+Summary: IDs para cambios
+Status: New
+CreatedBy: abalbi <alejandrobalbi@gmail.com>
+AssignedTo: 
+Inserted: 2013-09-28T01:25:08
+Updated: 2013-09-28T01:25:08
+
+Description ...
+Como usuario quiero que tanto evento y cambios esten identificados por un ID unico para poder identificarlos inequivocamente
+DADO el sistema
+CUANDO creo un cambio
+ENTONCES el cambio tendra un ID que no se repetira para ningun evento o cambio

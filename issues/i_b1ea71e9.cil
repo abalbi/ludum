@@ -1,0 +1,12 @@
+Summary: Cmd: ludum ls ID
+Status: New
+CreatedBy: abalbi <alejandrobalbi@gmail.com>
+AssignedTo: 
+Inserted: 2013-09-27T12:22:53
+Updated: 2013-09-27T12:22:53
+
+Description ...
+Como usuario quiero poder ejecutar un comando de linea para ver los Cambios de determinado Evento
+DADO el Evento que contiene los Cambios cambio1 y cambio2
+CUANDO ejecuto el comando ls con el ID de Evento
+ENTONCES quiero ver una lista de los cambios con cada uno en una lista con su ID y su peso

@@ -45,5 +45,10 @@ sub peso_para_cambio : Test(1) {
   is($ev->peso($ca1),10);
 }
 
+# Issue 41bb3ea2
+sub IDs_para_eventos : Test(1) {
+  my $ev = Evento->new();
+  ok($ev->ID =~ /[a-z|1-9]{8}/);
+}
 1;
 

@@ -2,12 +2,13 @@ package Evento;
 use strict;
 use Data::Dumper;
 
-use fields qw(_cambios _pesos);
+use fields qw(_cambios _pesos _ID);
 
 sub new {
   return bless({
     _cambios => [],
     _pesos => [],
+    _ID => join '',(map { ("a".."z", 0..9)[rand 36] } 1..8),
   },'Evento');
 }
 
@@ -41,5 +42,10 @@ sub peso {
       return $reg->{peso};
     }
   }
+}
+
+sub ID {
+  my $self = shift;
+  return $self->{_ID};
 }
 1;
