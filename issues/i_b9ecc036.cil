@@ -1,0 +1,14 @@
+Summary: Cargar un evento desde la db
+Status: New
+CreatedBy: abalbi <alejandrobalbi@gmail.com>
+AssignedTo: 
+DependsOn: 2d7eebc7
+Precedes: b1ea71e9
+Inserted: 2013-09-29T01:09:02
+Updated: 2013-09-29T01:16:07
+
+Description ...
+COMO usuario QUIERO recuperar los eventos que tengo guardados en la base de datos PARA utilizarlos despues de haberlos guardado
+DADO un evento1 guardado en la base de datos con el id ID
+CUANDO Fabrica->cargar('Evento', ID)
+ENTONCES recupero un Evento con el mismo ID y demas datos

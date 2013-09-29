@@ -2,8 +2,10 @@ Summary: Cmd: ludum ls ID
 Status: New
 CreatedBy: abalbi <alejandrobalbi@gmail.com>
 AssignedTo: 
+DependsOn: 92b9cb50
+DependsOn: b9ecc036
 Inserted: 2013-09-27T12:22:53
-Updated: 2013-09-27T12:22:53
+Updated: 2013-09-29T01:16:47
 
 Description ...
 Como usuario quiero poder ejecutar un comando de linea para ver los Cambios de determinado Evento
