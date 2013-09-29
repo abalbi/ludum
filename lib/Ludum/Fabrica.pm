@@ -1,10 +1,13 @@
 package Fabrica;
 use Data::Dumper;
-use fields qw(_IDs);
+use fields qw(_IDs _app);
 
 sub new {
+  my $pkg = shift;
+  my $app = shift;
   return bless {
-    _IDs => {}
+    _IDs => {},
+    _app => $app
   }, 'Fabrica';
 }
 
@@ -20,7 +23,10 @@ sub hacer {
     last if not exists $self->{_IDs}->{$ID};
   }
   $obj->ID($ID);
+  $obj->app($self->app);
   $self->{_IDs}->{$ID} = $obj;
   return $obj;
 }
+
+sub app {shift->{_app}};
 1;

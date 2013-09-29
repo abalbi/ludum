@@ -1,10 +1,10 @@
 Summary: Guardar Eventos en db
-Status: New
+Status: InProgress
 CreatedBy: abalbi <alejandrobalbi@gmail.com>
 AssignedTo: 
 Precedes: b9ecc036
 Inserted: 2013-09-29T00:13:25
-Updated: 2013-09-29T01:16:07
+Updated: 2013-09-29T14:35:44
 
 Description ...
 COMO Usuario QUIERO guardar los eventos en una db PARA poder usarlos luego si los necesito

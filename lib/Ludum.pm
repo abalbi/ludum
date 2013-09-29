@@ -1,5 +1,5 @@
 package Ludum;
-use Mango;
+use MongoDB;
 use Mojo::Base 'Mojolicious';
 use Ludum::Fabrica;
 
@@ -13,9 +13,9 @@ sub startup {
   # Router
   my $r = $self->routes;
 
- $self->helper(fabrica => sub { state $fabrica = Fabrica->new() });
+ $self->helper(fabrica => sub { state $fabrica = Fabrica->new($self) });
  $self->helper(db => sub {
-   state $db = Mango->new('mongodb://localhost:27017')->db('ludum_test');
+   state $db = MongoDB::MongoClient->new->get_database('ludum_test');
  });
 
   # Normal route to controller

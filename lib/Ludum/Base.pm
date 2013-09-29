@@ -1,5 +1,5 @@
 package Ludum::Base;
-use fields qw(_ID);
+use fields qw(_ID _app);
 sub new {
   my $self = shift;
   unless (ref $self) {
@@ -15,4 +15,11 @@ sub ID {
   $self->{_ID} = $ID if defined $ID;
   return $self->{_ID};
 }
+
+sub app {
+  my $self = shift;
+  my $app = shift;
+  $self->{_app} = $app if defined $app;
+  return $self->{_app};
+};
 1;
