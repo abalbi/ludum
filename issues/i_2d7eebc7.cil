@@ -1,0 +1,13 @@
+Summary: Guardar Eventos en db
+Status: New
+CreatedBy: abalbi <alejandrobalbi@gmail.com>
+AssignedTo: 
+Inserted: 2013-09-29T00:13:25
+Updated: 2013-09-29T00:13:25
+
+Description ...
+COMO Usuario QUIERO guardar los eventos en una db PARA poder usarlos luego si los necesito
+DADO el evento1 con los cambios cambio1 y cambio2
+CUANDO Guardar evento1
+ENTONCES recibo como respuesta un VERDADERO
+Y si busco un documento en la tabla "evento" voy a encontrar un evento con ese valor de _ID

@@ -1,0 +1,12 @@
+Summary: Agregar helper db
+Status: Finished
+CreatedBy: abalbi <alejandrobalbi@gmail.com>
+AssignedTo: abalbi <alejandrobalbi@gmail.com>
+Inserted: 2013-09-29T00:49:56
+Updated: 2013-09-29T01:07:22
+
+Description ...
+COMO Usuario QUIERO tener a mi dispocion un helper de la base de datos PARA acceder a ella con facilidad
+DADO el sistema
+CUANDO Ludum->db
+ENTONCES recibo un objeto de coneccion al sistema

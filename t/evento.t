@@ -54,5 +54,12 @@ sub IDs_para_eventos : Test(1) {
   my $ev = $self->{t}->app->fabrica->hacer('Evento');
   ok($ev->ID =~ /[a-z|1-9]{8}/);
 }
+
+sub agregar_helper_db : Test(1) {
+  my $self = shift;
+  my $app = $self->{t}->app;
+  my $db = $app->db;
+  isa_ok($db,'Mango::Database');
+}
 1;
 
