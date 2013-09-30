@@ -2,8 +2,9 @@ package Evento;
 use Data::Dumper;
 use Mojolicious;
 use strict;
+use Cambio;
 use base 'Ludum::Base';
-use fields qw(_cambios _ID);
+use fields qw(_cambios _ID _app);
 
 sub new {
   my $class = shift;
@@ -12,6 +13,10 @@ sub new {
   $self->{_cambios} = [];
   return $self;
 }
+
+
+sub no_ID { return 0; }
+
 
 sub agregar {
   my $self = shift;
@@ -39,7 +44,6 @@ sub peso {
   }
 }
 
-
 sub guardar {
   my $self = shift;
   my $db = $self->app->db;
@@ -51,12 +55,22 @@ sub serializar {
   my $self = shift;
   my $ref = {%{$self}};
   delete $ref->{_app};
-  foreach my $reg (@{$ref->{_cambios}}) { 
-    $reg = {%{$reg}};
-    $reg->{cambio} = $reg->{cambio}->serializar;
+  $ref->{_cambios} = [];
+  foreach my $cambio (@{$self->cambios}) { 
+    my $reg = {%{$cambio}};
+    $reg->{cambio} = $cambio->{cambio}->serializar;
+    push @{$ref->{_cambios}}, $reg;
   }
   return $ref;
 }
 
+sub llenar {
+  my $self = shift;
+  my $hash = shift;
+  $self->SUPER::llenar($hash);
+  foreach my $reg (@{$hash->{_cambios}}) {
+    $self->agregar($self->app->fabrica->traer('Cambio',$reg->{cambio}));
+  }
+}
 
 1;
