@@ -87,6 +87,21 @@ sub cargar_evento_desde_db : Test(1) {
   is_deeply($ev,$ev2);
 }
 
+#--- Issue 92b9cb50 ---
+sub ordenar_cambios_por_peso : Test(1) {
+  my $self = shift;
+  my $ca1 = $self->{t}->app->fabrica->traer('Cambio');
+  my $ca2 = $self->{t}->app->fabrica->traer('Cambio');
+  my $ev = $self->{t}->app->fabrica->traer('Evento');
+  $ev->agregar($ca1);
+  $ev->agregar($ca2);
+  $ev->peso($ca1,20);
+  $ev->peso($ca2,10);
+  is_deeply($ev->cambios,[
+    { cambio => $ca2, peso => 10 },
+    { cambio => $ca1, peso => 20 },
+  ]);
+}
 
 1;
 

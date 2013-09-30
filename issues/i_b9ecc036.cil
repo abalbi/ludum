@@ -1,11 +1,11 @@
 Summary: Cargar un evento desde la db
-Status: InProgress
+Status: Finished
 CreatedBy: abalbi <alejandrobalbi@gmail.com>
 AssignedTo: abalbi <alejandrobalbi@gmail.com>
 DependsOn: 2d7eebc7
 Precedes: b1ea71e9
 Inserted: 2013-09-29T01:09:02
-Updated: 2013-09-29T14:57:10
+Updated: 2013-09-30T12:02:19
 
 Description ...
 COMO usuario QUIERO recuperar los eventos que tengo guardados en la base de datos PARA utilizarlos despues de haberlos guardado

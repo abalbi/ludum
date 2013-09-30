@@ -1,10 +1,10 @@
 Summary: Ordenar Cambios por peso
-Status: New
+Status: Finished
 CreatedBy: abalbi <alejandrobalbi@gmail.com>
 AssignedTo: 
 Precedes: b1ea71e9
 Inserted: 2013-09-26T14:36:26
-Updated: 2013-09-29T01:16:47
+Updated: 2013-09-30T12:15:55
 
 Description ...
 Como desarrollador quiero poder listar los Cambios de un Evento ordenados por su peso

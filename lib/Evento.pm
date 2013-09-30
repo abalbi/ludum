@@ -27,6 +27,8 @@ sub agregar {
 
 sub cambios {
   my $self = shift;
+  my $sorted = [sort {$a->{peso} <=> $b->{peso}} @{$self->{_cambios}}];
+  $self->{_cambios} = $sorted;
   return $self->{_cambios};
 }
 
